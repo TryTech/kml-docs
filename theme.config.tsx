@@ -1,4 +1,5 @@
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import Head from './components/head'
 
 const config: DocsThemeConfig = {
   logo: <span>@trytech/kml</span>,
@@ -18,6 +19,7 @@ const config: DocsThemeConfig = {
   },
   faviconGlyph: '📦',
   logoLink: 'https://trytech.app',
+  head: Head
 }
 
 export default config
