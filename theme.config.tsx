@@ -16,6 +16,8 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 2,
     toggleButton: true
   },
+  faviconGlyph: '📦',
+  logoLink: 'https://trytech.app',
 }
 
 export default config
