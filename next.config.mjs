@@ -1,9 +1,9 @@
+import nextra from 'nextra'
 import remarkMdxDisableExplicitJsx from 'remark-mdx-disable-explicit-jsx'
-
-const withNextra = require('nextra')({
+ 
+const withNextra = nextra({
   theme: 'nextra-theme-docs',
   themeConfig: './theme.config.tsx',
-  latex: true,
   mdxOptions: {
     remarkPlugins: [
       [
@@ -13,5 +13,5 @@ const withNextra = require('nextra')({
     ]
   }
 })
-
-module.exports = withNextra()
+ 
+export default withNextra()
