@@ -1,0 +1,62 @@
+# Function convertKmlTextToObject()
+
+The `convertKmlTextToObject()` function is used to convert a KML text to a KML object.
+
+## Syntax
+
+```js filename="convertKmlTextToObject.js" copy
+convertKmlTextToObject(text: string): KMLObject
+```
+
+### Parameters
+
+- `text` - The KML text to convert.
+
+### Returns
+
+A `KMLObject` representing the KML text.
+
+## Example
+
+```js filename="example.js" copy
+
+import { convertKmlTextToObject } from '@trytech/kml';
+
+const text = `
+    <?xml version="1.0" encoding="UTF-8"?>
+    <kml xmlns="http://www.opengis.net/kml/2.2">
+        <Document>
+            <name>My KML Document</name>
+            <description>This is a sample KML document</description>
+            <Placemark>
+                <name>Placemark 1</name>
+                <description>This is Placemark 1</description>
+                <Point>
+                    <coordinates>10,20,0</coordinates>
+                </Point>
+            </Placemark>
+            <Placemark>
+                <name>Placemark 2</name>
+                <description>This is Placemark 2</description>
+                <Point>
+                    <coordinates>30,40,0</coordinates>
+                </Point>
+            </Placemark>
+        </Document>
+    </kml>
+`;
+
+const kmlObject = convertKmlTextToObject(text);
+
+console.log(kmlObject);
+```
+
+In the example above, the `convertKmlTextToObject()` function is used to convert a KML text to a KML object. The `text` variable contains the KML text to convert. The function returns a `KMLObject` representing the KML text.
+
+The `kmlObject` variable will contain the KML object.
+
+## Notes
+
+- The `convertKmlTextToObject()` function is a synchronous operation that returns a `KMLObject`. You can use the returned value (KML object) directly in your code.
+
+- The `text` parameter should be a valid KML text that you want to convert to a KML object.

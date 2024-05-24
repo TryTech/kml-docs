@@ -1,0 +1,47 @@
+# Function reader()
+
+The `reader()` function is used to read a KML file and return a JavaScript object.
+
+## Syntax
+
+```js filename="reader.js" copy
+reader(filePath: string): Promise<KMLObject>
+```
+
+### Parameters
+
+- `filePath` - The path to the KML file.
+
+### Returns
+
+A `Promise` that resolves with a `KMLObject` object.
+
+## Example
+
+```js filename="example.js" copy
+import { reader } from '@trytech/kml';
+
+reader('path/to/file.kml')
+    .then((kmlObject) => {
+        console.log(kmlObject);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+```
+
+In the example above, the `reader()` function is used to read a KML file located at `path/to/file.kml`. The function returns a `Promise` that resolves with a `KMLObject` object. The `kmlObject` object contains the parsed KML data from the file.
+
+If an error occurs during the reading process, the `catch` block will handle the error and log it to the console.
+
+## Notes
+
+- The `reader()` function is asynchronous and returns a `Promise`. You need to use `.then()` and `.catch()` to handle the result and any errors.
+
+- The `KMLObject` object is a JavaScript object that represents the parsed KML data from the file. It contains the following properties:
+  - `document` - The root `Document` element of the KML file.
+  - `placemarks` - An array of `Placemark` elements in the KML file.
+
+- The `reader()` function uses the `xml-js` library to parse the KML file. Make sure to install the library as a dependency in your project.
+
+- The `reader()` not blocking the main thread, so it's safe to use it in a web application without causing performance issues.

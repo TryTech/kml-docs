@@ -1,0 +1,88 @@
+import DeprecatedSoon from '../../components/deprecated-soon'
+
+<DeprecatedSoon />
+
+# Function manipulator()
+
+The `manipulator()` function is used to manipulate a KML object.
+
+## Syntax
+
+```js filename="manipulator.js" copy
+manipulator(kmlObject: KMLObject, newPlacemark: Placemark): KMLObject
+```
+
+### Parameters
+
+- `kmlObject` - The KML object to manipulate.
+
+- `newPlacemark` - The new placemark to add to the KML object.
+
+### Returns
+
+A new KML object with the new placemark added.
+
+## Example
+
+```js filename="example.js" copy
+
+import { manipulator } from '@trytech/kml';
+
+const kmlObject = {
+    document: {
+        name: 'My KML Document',
+        description: 'This is a sample KML document',
+        placemarks: [
+            {
+                name: 'Placemark 1',
+                description: 'This is Placemark 1',
+                point: {
+                    coordinates: '10,20,0'
+                }
+            },
+            {
+                name: 'Placemark 2',
+                description: 'This is Placemark 2',
+                point: {
+                    coordinates: '30,40,0'
+                }
+            }
+        ]
+    }
+};
+
+const newPlacemark = {
+    name: 'Placemark 3',
+    description: 'This is Placemark 3',
+    point: {
+        coordinates: '50,60,0'
+    }
+};
+
+const newKmlObject = manipulator(kmlObject, newPlacemark);
+
+console.log(newKmlObject);
+```
+
+In the example above, the `manipulator()` function is used to manipulate a KML object. The `kmlObject` object contains a sample KML document with two placemarks. A new placemark is created and added to the KML object using the `newPlacemark` object. The function returns a new KML object with the new placemark added.
+
+The `newKmlObject` variable will contain the updated KML object with the new placemark.
+
+## Notes
+
+- The `manipulator()` function does not modify the original KML object. It returns a new KML object with the changes applied.
+
+- The `manipulator()` function can be used to add, update, or remove placemarks from a KML object.
+
+- The `manipulator()` function is useful for dynamically updating KML objects in response to user interactions or other events.
+
+- The `manipulator()` function is a powerful tool for working with KML objects in a flexible and efficient manner. It allows you to easily manipulate KML objects without having to manually modify the underlying data structure.
+
+- The `manipulator()` function is a key part of the KML library and is used extensively in KML applications to manage and update KML objects.
+
+- The `manipulator()` function is designed to be easy to use and understand, making it a valuable tool for developers working with KML data. It provides a simple and intuitive interface for manipulating KML objects, allowing you to focus on building great KML applications without getting bogged down in the details of the KML data format.
+
+- The `manipulator()` function is a core part of the KML library and is actively maintained and updated to ensure compatibility with the latest KML standards and best practices.
+
+- The `manipulator()` function is a versatile and powerful tool for working with KML data. It provides a wide range of features and capabilities for manipulating KML objects, making it an essential tool for developers working with KML data in their applications.
+

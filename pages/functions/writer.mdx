@@ -1,0 +1,74 @@
+# Function writer()
+
+The `writer()` function is used to write a KML object to a file.
+
+## Syntax
+
+```js filename="writer.js" copy
+writer(kmlObject: KMLObject, filePath: string): Promise<void>
+```
+
+### Parameters
+
+- `kmlObject` - The KML object to write to the file.
+
+- `filePath` - The path to the output KML file.
+
+### Returns
+
+A `Promise` that resolves when the KML object is successfully written to the file.
+
+
+## Example
+
+```js filename="example.js" copy
+
+import { writer } from '@trytech/kml';
+
+const kmlObject = {
+    document: {
+        name: 'My KML Document',
+        description: 'This is a sample KML document',
+        placemarks: [
+            {
+                name: 'Placemark 1',
+                description: 'This is Placemark 1',
+                point: {
+                    coordinates: '10,20,0'
+                }
+            },
+            {
+                name: 'Placemark 2',
+                description: 'This is Placemark 2',
+                point: {
+                    coordinates: '30,40,0'
+                }
+            }
+        ]
+    }
+};
+
+writer(kmlObject, 'output.kml')
+    .then(() => {
+        console.log('KML file written successfully');
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+```
+
+In the example above, the `writer()` function is used to write a KML object to a file named `output.kml`. The `kmlObject` object contains a sample KML document with two placemarks. The function returns a `Promise` that resolves when the KML object is successfully written to the file.
+
+If an error occurs during the writing process, the `catch` block will handle the error and log it to the console.
+
+## Notes
+
+- The `writer()` function is asynchronous and returns a `Promise`. You need to use `.then()` and `.catch()` to handle the result and any errors.
+
+- The `KMLObject` object is a JavaScript object that represents the KML data to write to the file. It should have the following properties:
+  - `document` - The root `Document` element of the KML file.
+  - `placemarks` - An array of `Placemark` elements in the KML file.
+
+- The `writer()` function uses the `xml-js` library to generate the KML file. Make sure to install the library as a dependency in your project.
+
+- The `writer()` function is not blocking the main thread, so it's safe to use it in a web application without causing performance issues.

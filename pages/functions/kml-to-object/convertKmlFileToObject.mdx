@@ -1,0 +1,47 @@
+# Function convertKmlFileToObject()
+
+The `convertKmlFileToObject()` function is used to convert a KML file to a KML object.
+
+## Syntax
+
+```js filename="convertKmlFileToObject.js" copy
+convertKmlFileToObject(file: string): Promise<KMLObject>
+```
+
+### Parameters
+
+- `file` - The path to the KML file to convert.
+
+### Returns
+
+A `Promise` that resolves to a `KMLObject` representing the KML file.
+
+## Example
+
+```js filename="example.js" copy
+import { convertKmlFileToObject } from '@trytech/kml';
+
+const file = 'path/to/file.kml';
+
+convertKmlFileToObject(file)
+    .then(kmlObject => {
+
+        console.log(kmlObject);
+    })
+    .catch(error => {
+
+        console.error(error);
+    });
+```
+
+In the example above, the `convertKmlFileToObject()` function is used to convert a KML file to a KML object. The `file` variable contains the path to the KML file to convert. The function returns a `Promise` that resolves to a `KMLObject` representing the KML file.
+
+If the conversion is successful, the `kmlObject` variable will contain the KML object. Otherwise, an error will be thrown.
+
+## Notes
+
+- The `convertKmlFileToObject()` function is an asynchronous operation that returns a `Promise`. You can use the `then()` method to handle the resolved value (KML object) and the `catch()` method to handle any errors that occur during the conversion process.
+
+- The `file` parameter should be a valid path to a KML file that you want to convert to a KML object.
+
+- The `KMLObject` type represents a KML object that can be manipulated using other functions provided by the `@trytech/kml` package.
