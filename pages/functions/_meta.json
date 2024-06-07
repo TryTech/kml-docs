@@ -1,7 +1,6 @@
 {
     "reader": "reader()",
     "writer": "writer()",
-    "validator": "validator()",
     "manipulator": "manupulator()",
     "kml-to-object": "kml to object"
 }
